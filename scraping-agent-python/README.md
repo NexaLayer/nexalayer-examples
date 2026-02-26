@@ -8,7 +8,7 @@ Example: use a NexaLayer dynamic session to run a simple scraping agent with opt
 # From nexalayer-sdk root: pip install -e ".[dev]"
 # Or install nexalayer from PyPI when published
 export NEXALAYER_API_KEY=your-api-key
-export NEXALAYER_BASE_URL=https://api.nexalayer.com/v1
+export NEXALAYER_BASE_URL=https://api.nexalayer.net/v1
 ```
 
 ## Run

@@ -6,7 +6,7 @@ Example: account operations (balance, products) and a static session (placeholde
 
 ```bash
 export NEXALAYER_API_KEY=your-api-key
-export NEXALAYER_BASE_URL=https://api.nexalayer.com/v1
+export NEXALAYER_BASE_URL=https://api.nexalayer.net/v1
 ```
 
 ## Run

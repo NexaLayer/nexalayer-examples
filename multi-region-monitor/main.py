@@ -15,7 +15,7 @@ except ImportError:
 
 def main():
     api_key = os.environ.get("NEXALAYER_API_KEY", "your-api-key")
-    base_url = os.environ.get("NEXALAYER_BASE_URL", "https://api.nexalayer.com/v1")
+    base_url = os.environ.get("NEXALAYER_BASE_URL", "https://api.nexalayer.net/v1")
     regions = ["US", "GB"]
 
     client = NexaLayerClient(api_key=api_key, base_url=base_url)

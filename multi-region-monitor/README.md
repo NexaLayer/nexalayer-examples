@@ -6,7 +6,7 @@ Example: run the same check from multiple regions using one NexaLayer session pe
 
 ```bash
 export NEXALAYER_API_KEY=your-api-key
-export NEXALAYER_BASE_URL=https://api.nexalayer.com/v1
+export NEXALAYER_BASE_URL=https://api.nexalayer.net/v1
 ```
 
 ## Run
