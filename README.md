@@ -1,24 +1,41 @@
 # NexaLayer Examples
 
-Runnable example projects using the [NexaLayer](https://nexalayer.com) API and SDK — *The Network Execution Layer for AI Agents.*
+Runnable examples for NexaLayer managed network sessions.
 
-## Examples
+**Keep using proxies. Stop managing them.**
 
-| Project | Description |
-|---------|-------------|
-| [scraping-agent-python](./scraping-agent-python) | Scraping agent using a dynamic session and rotation. |
-| [multi-region-monitor](./multi-region-monitor) | Multi-region checks with sessions per region. |
-| [session-rotation-demo](./session-rotation-demo) | Demonstrate session create and rotate flow. |
-| [account-ops-static-session](./account-ops-static-session) | Account operations and a static session (placeholder). |
+NexaLayer provides hosted network Sessions for Playwright, Puppeteer, Browser Use, AI agents, and automation scripts. These examples show how to query products, create Sessions, use `proxy.full_url`, report telemetry, read health, and clean up resources.
 
-## Prerequisites
+中文入口: [README.zh-CN.md](./README.zh-CN.md)
 
-- Python 3.9+
-- `NEXALAYER_API_KEY` (and optionally `NEXALAYER_BASE_URL`)
+## Scenario guide
 
-Install the NexaLayer SDK from the [nexalayer-sdk](https://github.com/NexaLayer/nexalayer-sdk) repo (e.g. `pip install -e path/to/nexalayer-sdk` for local dev) or use `requests` and the raw API as shown in each example’s README.
+| Scenario | Example | Recommended for |
+| --- | --- | --- |
+| First API call | [Python Quick Start](./python/quickstart) | Everyone |
+| Playwright | [Playwright basic session](./playwright/basic-session) | Browser automation |
+| Dynamic proxy script | [Dynamic Session](./python/dynamic-session) | Data access and short-lived jobs |
+| Fixed network identity | [Static Session](./python/static-session) | Compliant long-running tasks |
+| Diagnose proxy issues | [Telemetry + Health](./playwright/telemetry-health) | Technical teams |
 
-## Docs
+## Safety and billing
 
-- [Quickstart](https://docs.nexalayer.com/quickstart)
-- [API Reference](https://docs.nexalayer.com/api-reference/openapi)
+- Examples that create Sessions may create real paid resources.
+- Use a low-balance account or developer trial quota first.
+- Every Session example includes timeout handling and `finally` cleanup.
+- Do not use these examples to violate target website terms or applicable law.
+- Never commit `.env`, API keys, proxy credentials, cookies, or account passwords.
+
+## Requirements
+
+- Python 3.9+ for Python examples
+- Node.js 18+ for Node/Playwright examples
+- `NEXALAYER_API_KEY`
+- Optional `NEXALAYER_BASE_URL`, defaulting to `https://api.nexalayer.net/v1`
+- Optional `NEXALAYER_PRODUCT_NO` when you need a specific product
+
+## Documentation
+
+- Chinese Quick Start: https://docs.nexalayer.net/zh/quick-start
+- English Quick Start: https://docs.nexalayer.net/en/quick-start
+- API Reference: https://docs.nexalayer.net/api-reference/openapi

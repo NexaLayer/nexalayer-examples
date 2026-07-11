@@ -1,0 +1,28 @@
+name: Manual real smoke
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Example to run. May create paid sessions."
+        required: true
+        default: "node/quickstart"
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    environment: manual-smoke
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run selected smoke
+        env:
+          NEXALAYER_API_KEY: ${{ secrets.NEXALAYER_API_KEY }}
+          NEXALAYER_BASE_URL: https://api.nexalayer.net/v1
+        run: |
+          echo "Manual smoke may create a paid session. Examples must clean up in finally."
+          cd "${{ inputs.target }}"
+          if [ -f package.json ]; then npm install; npm start; else python main.py; fi
+

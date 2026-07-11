@@ -1,0 +1,26 @@
+name: Validate examples
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Validate public content
+        run: node scripts/validate-public-examples.mjs
+      - name: Node syntax check
+        run: |
+          node --check playwright/basic-session/index.mjs
+          node --check node/quickstart/index.mjs
+      - name: Python compile
+        run: python -m compileall python
+

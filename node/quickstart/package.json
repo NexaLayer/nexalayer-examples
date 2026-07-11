@@ -1,0 +1,9 @@
+{
+  "name": "nexalayer-node-quickstart",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs",
+    "syntax": "node --check index.mjs"
+  }
+}
