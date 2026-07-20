@@ -4,6 +4,7 @@ import { chromium } from "playwright";
 const BASE_URL = process.env.NEXALAYER_BASE_URL ?? "https://api.nexalayer.net/v1";
 const API_KEY = process.env.NEXALAYER_API_KEY;
 const PRODUCT_NO = process.env.NEXALAYER_PRODUCT_NO;
+const PROVISIONING_MODE = process.env.NEXALAYER_PROVISIONING_MODE ?? "existing";
 const TARGET_URL = process.env.NEXALAYER_TARGET_URL ?? "https://httpbin.org/ip";
 
 if (!API_KEY) {
@@ -15,14 +16,15 @@ function sleep(ms) {
 }
 
 async function api(method, path, body, headers = {}) {
+  const requestHeaders = {
+    "X-API-Key": API_KEY,
+    ...headers,
+  };
+  if (body !== undefined) requestHeaders["Content-Type"] = "application/json";
   const res = await fetch(`${BASE_URL}${path}`, {
     method,
-    headers: {
-      "Content-Type": "application/json",
-      "X-API-Key": API_KEY,
-      ...headers,
-    },
-    body: body ? JSON.stringify(body) : undefined,
+    headers: requestHeaders,
+    body: body !== undefined ? JSON.stringify(body) : undefined,
   });
   const json = await res.json().catch(() => ({}));
   if (!res.ok || json.success === false) {
@@ -76,6 +78,7 @@ try {
     {
       session_type: "dynamic",
       product_no: productNo,
+      provisioning_mode: PROVISIONING_MODE,
       quantity: 1,
       protocol: "socks5",
       rotation_mode: "on_demand",
@@ -112,10 +115,23 @@ try {
 } finally {
   await browser?.close().catch(() => {});
   if (sessionId) {
-    await api("POST", `/sessions/${sessionId}/report-event`, event).catch(() => {});
-    const health = await api("GET", `/sessions/${sessionId}/health`).catch(() => null);
-    if (health) console.log("health:", health);
-    await api("DELETE", `/sessions/${sessionId}`).catch(() => {});
-    console.log("terminated:", sessionId);
+    try {
+      await api("POST", `/sessions/${sessionId}/report-event`, event);
+    } catch (error) {
+      console.error("telemetry failed:", error.message);
+    }
+    try {
+      const health = await api("GET", `/sessions/${sessionId}/health`);
+      console.log("health:", health);
+    } catch (error) {
+      console.error("health query failed:", error.message);
+    }
+    try {
+      const terminated = await api("DELETE", `/sessions/${sessionId}`);
+      console.log("terminated:", terminated.session_id ?? sessionId);
+    } catch (error) {
+      console.error("terminate failed:", error.message);
+      throw error;
+    }
   }
 }

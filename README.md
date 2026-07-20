@@ -21,7 +21,7 @@ NexaLayer provides hosted network Sessions for Playwright, Puppeteer, Browser Us
 ## Safety and billing
 
 - Examples that create Sessions may create real paid resources.
-- Use a low-balance account or developer trial quota first.
+- Recharge and use NexaLayer directly, or contact Telegram support at https://t.me/ZTPROXY (@ztproxy) if you need a trial. Use `provisioning_mode=existing` for resources already configured by support.
 - Every Session example includes timeout handling and `finally` cleanup.
 - Do not use these examples to violate target website terms or applicable law.
 - Never commit `.env`, API keys, proxy credentials, cookies, or account passwords.
