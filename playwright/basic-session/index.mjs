@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { chromium } from "playwright";
 
 const BASE_URL = process.env.NEXALAYER_BASE_URL ?? "https://api.nexalayer.net/v1";

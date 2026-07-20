@@ -7,7 +7,7 @@
     "syntax": "node --check index.mjs"
   },
   "dependencies": {
+    "dotenv": "^17.4.2",
     "playwright": "^1.45.0"
-  },
-  "devDependencies": {}
+  }
 }
