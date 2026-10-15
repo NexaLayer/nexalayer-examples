@@ -2,7 +2,7 @@
 
 Creates a dynamic NexaLayer Session, waits for it to become active, launches Playwright through the returned proxy, reports telemetry, reads health, and terminates the Session in cleanup.
 
-By default this example uses `NEXALAYER_PROVISIONING_MODE=existing` to attach a resource already configured for the account, without placing another order. Contact [Telegram support](https://t.me/ZTPROXY) (@ztproxy) if you need a trial. If you recharged and want NexaLayer to buy a new resource, set the value to `purchase`; that may incur a charge.
+By default this example uses `NEXALAYER_PROVISIONING_MODE=existing` to attach a resource already configured for the account, without placing another order. A new email receives a small one-time trial credit automatically when requesting an API Key; no support request is required. If you recharged and want NexaLayer to buy a new resource, set the value to `purchase`; that may incur a charge.
 
 ```bash
 npm install
