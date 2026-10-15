@@ -13,6 +13,7 @@
 | 动态代理脚本 | [Dynamic Session](./python/dynamic-session) | 数据采集与短周期任务 |
 | 固定网络身份 | [Static Session](./python/static-session) | 合规长期任务 |
 | 诊断代理问题 | [Telemetry + Health](./playwright/telemetry-health) | 技术团队 |
+| 复现性能数据 | [Benchmark harness](./playwright/benchmark-harness) | 评测者与技术采购方 |
 
 ## 重要说明
 
@@ -31,4 +32,3 @@ cp .env.example .env
 # 编辑 .env，填入 NEXALAYER_API_KEY
 npm start
 ```
-

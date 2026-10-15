@@ -17,6 +17,7 @@ NexaLayer provides hosted network Sessions for Playwright, Puppeteer, Browser Us
 | Dynamic proxy script | [Dynamic Session](./python/dynamic-session) | Data access and short-lived jobs |
 | Fixed network identity | [Static Session](./python/static-session) | Compliant long-running tasks |
 | Diagnose proxy issues | [Telemetry + Health](./playwright/telemetry-health) | Technical teams |
+| Reproduce performance claims | [Benchmark harness](./playwright/benchmark-harness) | Reviewers and technical buyers |
 
 ## Safety and billing
 

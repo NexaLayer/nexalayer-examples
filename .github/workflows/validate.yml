@@ -20,7 +20,7 @@ jobs:
       - name: Node syntax check
         run: |
           node --check playwright/basic-session/index.mjs
+          node --check playwright/benchmark-harness/index.mjs
           node --check node/quickstart/index.mjs
       - name: Python compile
         run: python -m compileall python
-

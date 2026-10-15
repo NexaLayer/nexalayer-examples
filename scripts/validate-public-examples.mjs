@@ -41,6 +41,7 @@ for (const file of files) {
 const exampleDirs = [
   "playwright/basic-session",
   "playwright/telemetry-health",
+  "playwright/benchmark-harness",
   "python/quickstart",
   "python/dynamic-session",
   "python/static-session",

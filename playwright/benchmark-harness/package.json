@@ -1,0 +1,14 @@
+{
+  "name": "nexalayer-benchmark-harness",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node index.mjs",
+    "validate": "node index.mjs --validate"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "playwright": "^1.51.1"
+  }
+}
